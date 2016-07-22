@@ -1,0 +1,6 @@
+contents_security/
+node_modules/
+tmp_tweets/
+npm-debug.log
+name2tweet.js
+getBearerToken.js

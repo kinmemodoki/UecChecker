@@ -1,0 +1,68 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='../../favicon.ico')
+    title DenTooStudent Checker
+    // Bootstrap core CSS
+    link(href='../../dist/css/bootstrap.min.css', rel='stylesheet')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    link(href='../../assets/css/ie10-viewport-bug-workaround.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='./stylesheets/cover.css', rel='stylesheet')
+    // Just for debugging purposes. Don't actually copy these 2 lines!
+    //if lt IE 9
+      script(src='../../assets/js/ie8-responsive-file-warning.js')
+    script(src='../../assets/js/ie-emulation-modes-warning.js')
+    script(src='https://use.fortawesome.com/66ea23a3.js')
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+  body
+    .site-wrapper
+      .site-wrapper-inner
+        .cover-container.row
+          .masthead.clearfix
+            .inner
+              h3.masthead-brand DenTooStudent Checker
+              nav
+                ul.nav.masthead-nav
+                  li.active
+                    a(href='./') Home
+                  li
+                    a(href='./info') Features
+                  li
+                    a(href='https://twitter.com/kinmemodoki') Contact
+          
+          .inner.cover
+            h3.cover-heading #{screen_name} は
+
+            h1.cover-heading.text-danger #{guess}
+            h2.cover-heading 電通大生レベル：#{percent}
+            br
+            h3.cover-heading よく呟いている曜日：#{most_week_kanji}曜日
+            h3.cover-heading 電通生っぽいツイート：#{feature_words}
+            h3.cover-heading 絵文字つきツイート：#{emoji}
+
+            p.lead
+              a#tweet.btn.btn-lg.btn-info(target="_blank" href="https://twitter.com/intent/tweet?button_hashtag=UecChecker&text=#{screen_name}は#{guess}UEC%E7%94%9F%E3%81%A3%E3%81%BD%E3%81%84%E3%83%AC%E3%83%99%E3%83%AB%E3%81%AF#{percent}%EF%BC%85%E3%81%A7%E3%81%97%E3%81%9F%EF%BC%81#UecChecker") 
+                i.fa.fa-twitter(aria-hidden='true')
+                |  Tweetして自慢する!!
+          .mastfoot.hidden-xs
+            .inner
+              p
+                | Page Created by Team of 
+                a.info(target="_blank" href='http://kyoumu.office.uec.ac.jp/syllabus/2016/33/33_25132120.html')  Advanced Topics of Content Security
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script.
+      window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\\/script>')
+    script(src='../../dist/js/bootstrap.min.js')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    script(src='../../assets/js/ie10-viewport-bug-workaround.js')
+

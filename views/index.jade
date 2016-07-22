@@ -1,0 +1,110 @@
+doctype html
+html(lang='ja')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='../../favicon.ico')
+    title DenTooStudent Checker
+    // Bootstrap core CSS
+    link(href='../../dist/css/bootstrap.min.css', rel='stylesheet')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    link(href='../../assets/css/ie10-viewport-bug-workaround.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='./stylesheets/cover.css', rel='stylesheet')
+    // Just for debugging purposes. Don't actually copy these 2 lines!
+    //if lt IE 9
+      script(src='../../assets/js/ie8-responsive-file-warning.js')
+    script(src='../../assets/js/ie-emulation-modes-warning.js')
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+    script(src='https://use.fortawesome.com/66ea23a3.js')
+  body
+    #loadingModal.modal(tabindex='-1', role='dialog', aria-labelledby='staticModalLabel', aria-hidden='true', data-show='true', data-keyboard='false', data-backdrop='static')
+      .modal-dialog
+        .modal-content
+          .modal-body
+            p.recipient 
+              a
+                br
+                br
+                i.fa.fa-spinner.fa-pulse.fa-4x.fa-fw
+                br
+                br
+                |分析中．．．
+    .site-wrapper
+      .site-wrapper-inner
+        .cover-container.row
+          .masthead.clearfix
+            .inner
+              h3.masthead-brand DenTooStudent Checker
+              nav
+                ul.nav.masthead-nav
+                  li.active
+                    a(href='./') Home
+                  li
+                    a(href='#') Features
+                  li
+                    a(href='https://twitter.com/kinmemodoki') Contact
+          form.inner.cover
+            h1.cover-heading 電通生チェッカー（仮）
+            p.lead
+              nobr
+                | 600人を超える電通生のアカウントを
+                wbr
+                |学習した分類機で
+                wbr
+                | あなたのアカウントの
+                wbr
+                |電通生度を測定します．
+            form
+              p.lead
+                .account
+                  .input-group
+                    span#basic-addon1.input-group-addon @
+                    input#target_name.form-control.input-lg(type='input', placeholder='Username')
+              p.lead
+                a#submit.btn.btn-lg.btn-default Check!!
+        .mastfoot.hidden-xs
+          .inner
+            p
+              | Page Created by 
+              br
+              |Team of 
+              a.info(target="_blank" href='http://kyoumu.office.uec.ac.jp/syllabus/2016/33/33_25132120.html')  Advanced Topics of Content Security
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script.
+      $(function(){
+        $("input"). keydown(function(e) {
+            if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+                window.location.href = './result?screen_name='+document.getElementById("target_name").value;
+                $('#loadingModal').modal();
+                var half =$(window).height()/2-100;
+                $(".modal-content").css({top:half});
+                return false;
+            } else {
+                return true;
+            }
+        });
+      });
+      $("#submit").on("click",function() {
+        $(this).attr('disabled', true);
+        window.location.href = './result?screen_name='+document.getElementById("target_name").value;
+        $('#loadingModal').modal();
+        var half =$(window).height()/2-100;
+        $(".modal-content").css({top:half});
+      });
+      window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\\/script>')
+    script(src='../../dist/js/bootstrap.min.js')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    script(src='../../assets/js/ie10-viewport-bug-workaround.js')
+
